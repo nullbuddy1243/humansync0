@@ -108,16 +108,16 @@ class HumanSync0SettingsTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', {text: 'HS0 setting'});
+		containerEl.createEl('h2', {text: 'HS0 server URL to sync posts to'});
 
 		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
+			.setName('hs0serverURL')
+			.setDesc('url to sync.')
 			.addText(text => text
-				.setPlaceholder('Enter your secret')
+				.setPlaceholder('Enter hs0 server url: ')
 				.setValue(this.plugin.settings.mySetting)
 				.onChange(async (value) => {
-					console.log('Secret: ' + value);
+					console.log('hs0serverURL: ' + value);
 					this.plugin.settings.mySetting = value;
 					await this.plugin.saveSettings();
 				}));
